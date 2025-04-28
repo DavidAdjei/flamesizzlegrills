@@ -8,7 +8,7 @@ import Contact from './pages/Contact';
 
 function App() {
   return (
-    <div>
+    <div  className='app'>
       <Navbar />
       <main className="main-content">
         <Routes>

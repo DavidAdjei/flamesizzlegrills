@@ -1,59 +1,100 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay, EffectFade } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/effect-fade';
+import React, { useState, useEffect } from 'react';
+import './HeroSlideshow.css';
+import ChickenJollof from '../assests/images/chicken-jollof.jpg';
+import PorkJollof from '../assests/images/pork-jollof.jpg';
+import Chicken from '../assests/images/chicken.jpg';
+import Pork from "../assests/images/pork.jpg";
+import PotatoChips from "../assests/images/potato-chips.jpg";
+import LSLY from "../assests/images/lsly.jpg";
 
-const dishes = [
+export const dishes = [
   {
-    image: '/images/dish1.jpg', // replace with your actual image paths
+    image: ChickenJollof, // replace with your actual image paths
     title: 'Jollof with Charcoal Grilled Chicken',
+    price: 60
   },
   {
-    image: '/images/dish2.jpg',
+    image: LSLY,
     title: 'Labadi Style Loaded Yam',
+    price: 80
   },
   {
-    image: '/images/dish3.jpg',
+    image: PotatoChips,
     title: 'Potato Chips with Grilled Pork',
+    price: 70
+  },
+  {
+    image: PorkJollof,
+    title: 'Jollof with Charcoal Grilled Pork',
+    price: 70
+  },
+  {
+    image: PotatoChips,
+    title: 'Yam Chips with Charcoal Grilled Chicken',
+    price: 70
+  },
+  {
+    image: PotatoChips,
+    title: 'Yam Chips with Charcoal Grilled Pork',
+    price: 70
+  },
+  {
+    image: PotatoChips,
+    title: 'Potato Chips with Charcoal Grilled Chicken',
+    price: 70
+  },
+  {
+    image: Pork,
+    title: 'Charcoal Grilled Pork Only',
+    price: 50
+  },
+  {
+    image: Chicken,
+    title: 'Charcoal Grilled Chicken Only',
+    price: 70
   },
 ];
 
 const HeroSection = () => {
-  return (
-    <div className="relative w-full h-screen">
-      <Swiper
-        modules={[Navigation, Autoplay, EffectFade]}
-        navigation
-        effect="fade"
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-        loop
-        className="w-full h-full"
-      >
-        {dishes.map((dish, index) => (
-          <SwiperSlide key={index}>
-            <div className="relative w-full h-screen">
-              <img
-                src={dish.image}
-                alt={dish.title}
-                className="object-cover w-full h-full"
-              />
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white">
-                <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">{dish.title}</h1>
-                <button className="mt-4 px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full text-lg font-semibold">
-                  Order Now
-                </button>
-              </div>
+    const [currentSlide, setCurrentSlide] = useState(0);
+  
+    useEffect(() => {
+      const timer = setInterval(() => {
+        nextSlide();
+      }, 5000); // 5 seconds
+      return () => clearInterval(timer);
+    }, [currentSlide]);
+  
+    const nextSlide = () => {
+      setCurrentSlide((prev) => (prev + 1) % dishes.length);
+    };
+  
+    const prevSlide = () => {
+      setCurrentSlide((prev) => (prev - 1 + dishes.length) % dishes.length);
+    };
+  
+    return (
+      <div className="hero-slideshow">
+        {dishes.map((slide, index) => (
+          <div
+            key={index}
+            className={`slide ${index === currentSlide ? 'active' : ''}`}
+            style={{ backgroundImage: `url(${slide.image})` }}
+          >
+            <div className="slide-content">
+              <h1>{slide.title}</h1>
             </div>
-          </SwiperSlide>
+          </div>
         ))}
-      </Swiper>
-    </div>
-  );
-};
+  
+        <button className="nav-button prev" onClick={prevSlide}>
+          &#10094;
+        </button>
+        <button className="nav-button next" onClick={nextSlide}>
+          &#10095;
+        </button>
+      </div>
+    );
+  };
 
 export default HeroSection;

@@ -1,0 +1,75 @@
+/* About.css */
+
+.about-page {
+    background-color: #121212;
+    color: #eeeeee;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-page h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: #ff6b00;
+  }
+  
+  .about-page p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    text-align: center;
+    margin: 15px 0;
+    line-height: 1.6;
+  }
+  
+  .about-page h3 {
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #ffa733;
+  }
+  
+  .services-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+  }
+  
+  .services-list li {
+    background: #1e1e1e;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    transition: background 0.3s;
+  }
+  
+  .services-list li:hover {
+    background: #2c2c2c;
+  }
+  
+  .services-list strong {
+    color: #ff904f;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .about-page h2 {
+      font-size: 2rem;
+    }
+  
+    .about-page h3 {
+      font-size: 1.5rem;
+    }
+  
+    .about-page p {
+      font-size: 1rem;
+      padding: 0 10px;
+    }
+  
+    .services-list li {
+      font-size: 1rem;
+    }
+  }
+  
