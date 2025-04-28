@@ -1,0 +1,147 @@
+/* Dark theme modal overlay */
+.order-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  /* Modal box */
+  .order-modal {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    margin-inline: 20px;
+    color: #ffffff;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  }
+
+  .order-modal h4, 
+  .order-modal p{
+    margin: 10px;
+  }
+  
+  /* Close button */
+  .close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  
+  /* Empty order text */
+  .empty-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #ccc;
+  }
+  
+  /* Items list */
+  .order-items {
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  /* Single item */
+  .order-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+  }
+  
+  /* Item image */
+  .order-item-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  
+  /* Item details */
+  .order-item-details {
+    flex-grow: 1;
+  }
+
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .quantity-controls svg:hover{
+    background-color: #333;
+  }
+
+  .quantity-controls button {
+    background: #f59e0b;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .quantity-controls button:hover {
+    background: #fbbf24;
+  }
+  
+  /* Remove button */
+  .remove-button {
+    background: #ff4d4d;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  
+  /* Order summary section */
+  .order-summary-cart {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Place Order button */
+  .place-order-button {
+    background: #e63946;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .place-order-button:hover {
+    background: #d62839;
+  }
+  
+
+  @media (max-width: 768px) {
+    .order-item-details h4{
+      font-size: 1rem;
+    }
+    .order-item-details p{
+      font-size: .7rem;
+    }
+  }
