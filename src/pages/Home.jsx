@@ -1,10 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
 import HeroSection from '../components/HeroSection';
 import './Home.css'; // Make sure to import the styles!
+import Feedback from '../components/Feedback';
 
 function Home() {
+    const [email, setEmail] = useState('');
+  const [feedback, setFeedback] = useState({ message: '', type: '' });
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (!email || email.trim() === '') {
+      setFeedback({ message: 'Please enter your email address.', type: 'error' });
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setFeedback({ message: 'Please enter a valid email address.', type: 'error' });
+      return;
+    }
+
+    setFeedback({ message: 'Thank you for subscribing!', type: 'success' });
+    setEmail('');
+  };
+
+  const handleCloseFeedback = () => {
+    setFeedback({ message: '', type: '' });
+  };
   return (
     <div className="home-page">
+        <Feedback
+            message={feedback.message}
+            type={feedback.type}
+            onClose={handleCloseFeedback}
+        />
       <div className="home-content">
         <h2>Welcome to Flame Sizzle and Grills</h2>
         <h3>Where Flavor Meets Tradition</h3>
@@ -28,8 +56,13 @@ function Home() {
 
         <section className="section">
           <h4>Newsletter Subscription</h4>
-          <form className="newsletter">
-            <input type="email" placeholder="Enter your email" required />
+          <form className="newsletter" onSubmit={handleSubscribe}>
+            <input
+              type="text"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <button type="submit">Subscribe</button>
           </form>
         </section>

@@ -6,17 +6,13 @@ import Chicken from '../assests/images/chicken.jpg';
 import Pork from "../assests/images/pork.jpg";
 import PotatoChips from "../assests/images/potato-chips.jpg";
 import LSLY from "../assests/images/lsly.jpg";
+import { Link } from 'react-router-dom';
 
 export const dishes = [
   {
     image: ChickenJollof, // replace with your actual image paths
     title: 'Jollof with Charcoal Grilled Chicken',
     price: 60
-  },
-  {
-    image: LSLY,
-    title: 'Labadi Style Loaded Yam',
-    price: 80
   },
   {
     image: PotatoChips,
@@ -34,19 +30,24 @@ export const dishes = [
     price: 70
   },
   {
-    image: PotatoChips,
-    title: 'Yam Chips with Charcoal Grilled Pork',
-    price: 70
+    image: LSLY,
+    title: 'Labadi Style Loaded Yam',
+    price: 80
   },
   {
     image: PotatoChips,
-    title: 'Potato Chips with Charcoal Grilled Chicken',
+    title: 'Yam Chips with Charcoal Grilled Pork',
     price: 70
   },
   {
     image: Pork,
     title: 'Charcoal Grilled Pork Only',
     price: 50
+  },
+  {
+    image: PotatoChips,
+    title: 'Potato Chips with Charcoal Grilled Chicken',
+    price: 70
   },
   {
     image: Chicken,
@@ -82,7 +83,8 @@ const HeroSection = () => {
             style={{ backgroundImage: `url(${slide.image})` }}
           >
             <div className="slide-content">
-              <h1>{slide.title}</h1>
+                <h1>{slide.title}</h1>
+                <Link to="/products" className="view-more-button">View More</Link>
             </div>
           </div>
         ))}

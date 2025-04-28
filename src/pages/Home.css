@@ -46,7 +46,7 @@
     justify-content: center;
   }
   
-  .newsletter input[type="email"] {
+  .newsletter input[type="text"] {
     padding: 10px 15px;
     width: 250px;
     border: 1px solid #ccc;
