@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fdfdfd;
+    color: #222;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .navbar {
+    background-color: #1f1f1f;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .nav-links a {
+    margin: 0 15px;
+    font-weight: 600;
+    color: #fff;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .footer {
+    background-color: #1f1f1f;
+    color: #eee;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .page {
+    padding: 30px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .section {
+    margin-top: 40px;
+  }
+  
+  .newsletter input {
+    padding: 8px;
+    margin-right: 10px;
+  }
+  .newsletter button {
+    padding: 8px 20px;
+    background-color: #f26522;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+  .contact-form button {
+    padding: 10px 20px;
+    background-color: #f26522;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
